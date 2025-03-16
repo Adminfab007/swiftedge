@@ -136,12 +136,12 @@
 								<h2>Log in</h2>
 								<p class="mb-0">Enter your details below to sign in</p>
 							</div>
-							<form id="loginForm" method="POST" class="account__form needs-validation" novalidate>
+							<form class="account__form needs-validation" novalidate>
 								<div class="row g-4">
 									<div class="col-12">
 										<div>
-											<label for="username" class="form-label">Username/Email</label>
-											<input type="text" class="form-control" id="username" name="username" placeholder="Enter your username or email"
+											<label for="username" class="form-label">Email</label>
+											<input type="text" class="form-control" id="email" name="username" placeholder="Enter your username or email"
 											required>
 										</div>
 									</div>
@@ -167,8 +167,8 @@
 										<a href="forgot-password.html">Forgot Password?</a>
 									</div>
 								</div>
-								<p class="my-3 alert alert-success" id="errorshow1" role="alert"></p>
-								<button type="submit" class="trk-btn trk-btn--border trk-btn--primary d-block mt-4">Sign in</button>
+								<p class="my-3 alert live-section" id="errorshow1" role="alert"></p>
+								<button type="button" id="btn" onclick="blurr()" class="trk-btn trk-btn--border trk-btn--primary d-block mt-4">Sign in</button>
 							</form>
 							<div class="account__switch">
 								<p>Don't have an account? <a href="signup.html">Sign up</a></p>
@@ -200,6 +200,85 @@
 <script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="../cdn.gtranslate.net/widgets/v1.0.1/float.js" defer></script>
 	<script src="assets/js/custom.js"></script>
+
+       
+    <script>
+        var btn=document.getElementById('btn');
+ function red () {
+         btn.style.opacity="1"
+         btn.innerHTML="SignIn"
+ 
+                        }
+ 
+ function blurr (){
+     
+     btn.style.opacity="0.5"
+     btn.innerHTML= "Loading . . ."
+    
+ }
+ 
+         async function loginUser({ email, password }) {
+             await $.ajax({
+                 type: "POST",
+                 url: "https://whaleoptions-render.onrender.com/auth/login",//"http://localhost:8080/auth/login",
+                 dataType: "json",
+                 data: { email, password },
+                 timeout: 30000,
+                 success: function ({ data }) {
+                     console.log(data);
+                     $('.live-section').show()
+                     $('.live-section').html("Login successful").addClass('alert-success')
+
+                    // Swal.fire({
+                    //                     icon: 'success',
+                    //                     text: 'Login successful!',
+                    //                     confirmButtonText: 'OK',
+                    //                     confirmButtonColor: '#3a64d1',
+                    //                     allowOutsideClick: true,
+                    //                     allowEscapeKey: true,
+                    //                 });
+                     localStorage.setItem("user", JSON.stringify(data))
+                     setTimeout(function () { if (email=="adminrole@gmail.com"){
+                         $(location).prop('href', '../dashboard/admin/admindashboard.html')}
+                         else{
+                              $(location).prop('href','../dashboard/dashboard.html')
+                 
+                         }
+                     }, 1000 * 4)
+                     
+                 },
+                 error: function (xhr, status, error,response) {
+                     red();
+                     console.log(error);
+                     $('.live-section').show()
+                     $('.live-section').html("Incorrect Username or Password").addClass('alert-danger')
+
+                    // Swal.fire({
+                    //                     icon: 'error',
+                    //                     text: 'Incorrect Username or Password!',
+                    //                     confirmButtonText: 'OK',
+                    //                     confirmButtonColor: '#3a64d1',
+                    //                     allowOutsideClick: true,
+                    //                     allowEscapeKey: true,
+                    //                 });
+                 }
+             });
+ 
+         }
+        
+ 
+ 
+         $('#btn').click(function (e) {
+             e.preventDefault(); // prevents page reload
+             const emaill = $('#email').val();
+             const email=emaill.toLowerCase()
+             const password = $('#password').val();
+ e.innerText='Loading. . .'
+ console.log(email );
+ 
+             loginUser({ email, password });
+         });
+     </script>
 
 	<script>
 		const showpass = (pass, span) => {
