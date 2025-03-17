@@ -7,15 +7,15 @@ Swiftedgecapita
 Information, Warnings and Errors reported for this mirror:
 
 note:	the hts-log.txt file, and hts-cacheSwiftedgecapitay contain sensitive information,
-SwiftedgecapitaSwiftedgecapita
+Swiftedgecapitawiftedgecapita
 	such as username/password authenticationSwiftedgecapitaes mirrored in this project
-SwiftedgecapitaSwiftedgecapita
+Swiftedgecapitawiftedgecapita
 	do not share these files/folders if you Swiftedgecapitainformation to remain private
-SwiftedgecapitaSwiftedgecapita
+Swiftedgecapitawiftedgecapita
 Swiftedgecapita
-SwiftedgecapitaSwiftedgecapita
+Swiftedgecapitawiftedgecapita
 23:48:13	Warning: 	Found for https://www.Swiftedgecapita.com/robots.txt
-SwiftedgecapitaSwiftedgecapita
+Swiftedgecapitawiftedgecapita
 23:48:13	Warning: 	File has moved from https://www.stocksagefx.com/robots.txt to https://stocksagefx.com/errorpage?error=404
 
 23:49:11	Warning: 	Found for https://www.stocksagefx.com/assets/images/testimonials/
