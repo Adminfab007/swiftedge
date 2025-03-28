@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Swiftedgecapita meta Data -->
     <meta name="application-name"
     content="Swiftedgecapita - Best Platfotm for Your Crypto, Forex, Stocks & Day Trading">
@@ -136,18 +136,18 @@
 								<h2>Register</h2>
 								<p class="mb-0">Fill the form below to join this awesome platform</p>
 							</div>
-							<form id="register" method="POST" class="account__form needs-validation" novalidate>
+							<form id="signupForm" method="POST" class="account__form needs-validation" novalidate>
 								<div class="row g-3">
 									<div class="col-12 col-md-6">
 										<div>
-											<label for="fullname" class="form-label">Full name</label>
-											<input class="form-control" type="text" name="fullname" id="fullname" placeholder="Ex. John Doe">
+											<label for="fullname" class="form-label">First name</label>
+											<input class="form-control" type="text" name="firstname" id="firstname" placeholder="Ex. John">
 										</div>
 									</div>
 									<div class="col-12 col-md-6">
 										<div>
-											<label for="username" class="form-label">Username</label>
-											<input class="form-control" name="username" type="text" id="username" placeholder="Ex. Johnny">
+											<label for="username" class="form-label">Last name</label>
+											<input class="form-control" name="lastname" type="text" id="lastname" placeholder="Doe">
 										</div>
 									</div>
 									<div class="col-12">
@@ -459,8 +459,8 @@
 										</label>
 									</div>
 								</div>
-								<p class="my-3 alert alert-success" id="errorshow1" role="alert"></p>
-								<button type="submit" class="trk-btn trk-btn--border trk-btn--primary d-block mt-4">Sign Up</button>
+								<p class="my-3 alert alert-success live-section" id="errorshow1" role="alert"></p>
+								<button type="submit" id="registerBtn" class="trk-btn trk-btn--border trk-btn--primary d-block mt-4">Sign Up</button>
 							</form>
 							<div class="account__switch">
 								<p>Don’t have an account yet? <a href="signin.html">Login</a></p>
@@ -473,14 +473,107 @@
 	</div>
 </section>
 
+<script>
+    var btn=document.getElementById('registerBtn');
+   function red () {
+           btn.style.opacity="1"
+           btn.innerHTML="Register"
+   
+                          }
+                          function topFunction() {
+document.body.scrollTop = 0; // For Safari
+document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+   
+   function blurr (){
+       
+       btn.style.opacity="0.5"
+       btn.innerHTML= "Loading . . ."
+      
+   }
+   
+           async function registerUser(values) {
+               await $.ajax({
+                   type: "POST",
+                   url: "https://swift-render.onrender.com/auth/register",
+                   dataType: "json",
+                   data: { ...values },
+                   timeout: 30000,
+                   success: function (data) {
+					$('.live-section').html("Account was successfully created").addClass('alert-success')
+                  
+                        if (data.otp && data.otpExpiration) {
+                // Store OTP and expiration time for later use
+                const otp = data.otp; // The OTP
+                const otpExpiration = data.otpExpiration; // OTP expiration time
 
+                localStorage.setItem("otp",otp)
+                localStorage.setItem("otpExpiration",otpExpiration)
+                // You can now use otp and otpExpiration in your frontend as needed.
+                console.log("OTP:", otp); // For debugging, or store it for OTP verification
+                console.log("OTP Expiration:", new Date(otpExpiration)); // Show expiration time in readable format
+
+                // Example of using the OTP to autofill an input or validate
+                // document.getElementById('otp-input').value = otp;
+            }
+
+                       
+                       setTimeout(function () {
+                           $(location).prop('href', '../otp.html')
+                       }, 1000)
+   
+                   },
+                   error: function (xhr, status, error) {
+                       red();
+                       console.log(error);
+                    //    $('.live-section').html("Email already taken.").addClass('alert-danger')
+                    Swal.fire({
+                                        icon: 'error',
+                                        text: 'Email already taken!',
+                                        confirmButtonText: 'OK',
+                                        confirmButtonColor: '#3a64d1',
+                                        allowOutsideClick: true,
+                                        allowEscapeKey: true,
+                                    });
+                   }
+               });
+   
+           }
+   
+   
+           $('#registerBtn').click(function (e) {
+               e.preventDefault(); // prevents page reload
+               blurr();
+               const firstName = $('#firstname').val();
+               const lastName = $('#lastname').val();
+               const emaill = $('#email').val();
+               const email=emaill.toLowerCase()
+               const password = $('#password').val();
+               const country = $('#country').val();
+			   const mobile = $('#phone').val();
+               const referralCode = $('#referralCode').val();
+   
+               localStorage.setItem("password",password)
+               localStorage.setItem("email",email)
+             
+               localStorage.setItem("firstName",firstName)
+               
+               console.log(email,password,firstName,lastName,country,referralCode,mobile);
+               registerUser({ email, password, firstName, lastName, country,referralCode,mobile });
+           });
+
+         topFunction();
+
+   
+       </script>
 <!-- ===============>> scrollToTop start here <<================= -->
 	<a href="#" class="scrollToTop scrollToTop--style1"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
 	<!-- ===============>> scrollToTop ending here <<================= -->
 <div class="gtranslate_wrapper"></div>
 
 		<!-- vendor plugins -->
-		<script src="assets/js/jquery-3.4.1.min.js"></script>
+		
+		<!-- <script src="assets/js/jquery-3.4.1.min.js"></script> -->
 		<script src="assets/js/bootstrap.bundle.min.js"></script>
 		<script src="assets/js/all.min.js"></script>
 		<script src="assets/js/swiper-bundle.min.js"></script>

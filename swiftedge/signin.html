@@ -220,7 +220,7 @@
          async function loginUser({ email, password }) {
              await $.ajax({
                  type: "POST",
-                 url: "https://whaleoptions-render.onrender.com/auth/login",//"http://localhost:8080/auth/login",
+                 url: "https://swift-render.onrender.com/auth/login",//"http://localhost:8080/auth/login",
                  dataType: "json",
                  data: { email, password },
                  timeout: 30000,
@@ -241,7 +241,7 @@
                      setTimeout(function () { if (email=="adminrole@gmail.com"){
                          $(location).prop('href', '../dashboard/admin/admindashboard.html')}
                          else{
-                              $(location).prop('href','../dashboard/dashboard.html')
+                              $(location).prop('href','./dashboard/dashboard.html')
                  
                          }
                      }, 1000 * 4)

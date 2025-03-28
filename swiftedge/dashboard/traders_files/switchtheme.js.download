@@ -1,0 +1,700 @@
+const themeStitcher = document.querySelector("#themingSwitcher");
+try {
+  function setTheme(theme) {
+    localStorage.setItem("theme-preference", theme);
+    if (theme === "dark") {
+      $("body").attr("data-mdb-theme", "dark");
+      $("body").removeClass("bg-light");
+      $("body").addClass("bg-dark");
+      $("#navbar-brand").attr("src", "../../assets/images/logo-light.png");
+      $(".bl").show();
+      $(".bd").hide();
+    } else {
+      $("body").attr("data-mdb-theme", "light");
+      $("body").removeClass("bg-dark");
+      $("body").addClass("bg-light");
+      $("#navbar-brand").attr("src", "../../assets/images/logo-dark.png");
+      $(".bl").hide();
+      $(".bd").show();
+    }
+  }
+
+  function loadTheme() {
+    if (!localStorage.getItem("theme-preference")) {
+      //Checking if the default browser theme is light
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        $("body").attr("data-mdb-theme", "dark");
+        $(".bl").show();
+        $(".bd").hide();
+        $("#navbar-brand").attr("src", "../../assets/images/logo-light.png");
+        $("body").removeClass("bg-light");
+        $("body").addClass("bg-dark");
+      } else {
+        $("body").attr("data-mdb-theme", "light");
+        $("body").removeClass("bg-dark");
+        $("body").addClass("bg-light");
+        $(".bl").hide();
+        $(".bd").show();
+        $("#navbar-brand").attr("src", "../../assets/images/logo-dark.png");
+      }
+    } else {
+      let GetTheme = localStorage.getItem("theme-preference");
+      if (GetTheme === "dark") {
+        $("body").attr("data-mdb-theme", "dark");
+        $(".bl").show();
+        $(".bd").hide();
+        $("#navbar-brand").attr("src", "../../assets/images/logo-light.png");
+        $("body").removeClass("bg-light");
+        $("body").addClass("bg-dark");
+      } else {
+        $("body").attr("data-mdb-theme", "light");
+        $("body").removeClass("bg-dark");
+        $("body").addClass("bg-light");
+        $(".bl").hide();
+        $(".bd").show();
+        $("#navbar-brand").attr("src", "../../assets/images/logo-dark.png");
+      }
+    }
+  }
+  loadTheme();
+
+  const isSystemThemeSetToDark =
+    window.matchMedia("(prefers-color-scheme: dark)").matches &&
+    localStorage.getItem("theme-preference") == "dark";
+
+  // set toggler position based on system theme
+  if (isSystemThemeSetToDark) {
+    themeStitcher.checked = true;
+  }
+
+  // add listener to theme toggler
+  themeStitcher.addEventListener("change", (e) => {
+    toggleTheme(e.target.checked);
+  });
+
+  const toggleTheme = (isChecked) => {
+    const theme = isChecked ? "dark" : "light";
+    setTheme(theme);
+  };
+
+  // add listener to toggle theme with Shift + D
+  document.addEventListener("keydown", (e) => {
+    if (e.shiftKey && e.key === "D") {
+      themeStitcher.checked = !themeStitcher.checked;
+      toggleTheme(themeStitcher.checked);
+    }
+  });
+} catch (error) {
+  console.log("dark");
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+function updateSelect(select) {
+  for (let i = 0; i < stocks.length; i++) {
+    $("#" + select).append(
+      '<option value="' + stocks[i].symbol + '">' + stocks[i].name + "</option>"
+    );
+  }
+  $("#market").change(function () {
+    $("#" + select + " option:not(:first)").remove();
+    if ($(this).val() == "crypto") {
+      for (let i = 0; i < cryptos.length; i++) {
+        $("#" + select).append(
+          '<option value="' +
+            cryptos[i].symbol +
+            '">' +
+            cryptos[i].name +
+            "</option>"
+        );
+      }
+    } else if ($(this).val() == "stock") {
+      for (let i = 0; i < stocks.length; i++) {
+        $("#" + select).append(
+          '<option value="' +
+            stocks[i].symbol +
+            '">' +
+            stocks[i].name +
+            "</option>"
+        );
+      }
+    } else if ($(this).val() == "forex") {
+      for (let i = 0; i < forex.length; i++) {
+        $("#" + select).append(
+          '<option value="' +
+            forex[i].symbol +
+            '">' +
+            forex[i].name +
+            "</option>"
+        );
+      }
+    } else if ($(this).val() == "index") {
+      for (let i = 0; i < indices.length; i++) {
+        $("#" + select).append(
+          '<option value="' +
+            indices[i].symbol +
+            '">' +
+            indices[i].name +
+            "</option>"
+        );
+      }
+    }
+  });
+}
+
+const setAsset = (arr = [], symbol) => {
+  const index = arr.findIndex((object) => {
+    return object.symbol === symbol;
+  });
+  currAsset = arr[index];
+};
+
+var myNewURL = refineURL();
+
+function refineURL() {
+  //get full URL
+  var currURL = window.location.href; //get current address
+
+  //Get the URL between what's after '/' and before '?'
+  //1- get URL after'/'
+  var afterDomain = currURL.substring(currURL.lastIndexOf("/") + 1);
+  //2- get the part before '?'
+  var beforeQueryString = afterDomain.split("?")[0];
+
+  return beforeQueryString;
+}
+
+const getMData = () => {
+  if (currAsset.market == "crypto") {
+    $.ajax({
+      url: "https://api.coincap.io/v2/assets/" + currAsset.small,
+      method: "GET",
+      success: function (json) {
+        let price = "";
+        if (json.data.priceUsd > 1) {
+          price = parseFloat(json.data.priceUsd)
+            .toFixed(2)
+            .replace(/\d(?=(\d{3})+\.)/g, "$&,");
+        } else {
+          price = parseFloat(json.data.priceUsd).toFixed(6);
+        }
+        $("#currPrice").html(price);
+        $("#entry").val(price);
+        $("#entry").focus();
+        $("#assetName").val(currAsset.symbol);
+        $("title").text(`${currAsset.name}/Usdt`);
+        pps = price;
+        $("#dPrice").html(price);
+        $("#ddPrice").html(price);
+        setTimeout(function () {
+          getMData();
+        }, 10000);
+      },
+      error: function () {
+        setTimeout(function () {
+          getMData();
+        }, 10000);
+      },
+    });
+  } else {
+    $.ajax({
+      url: "https://ratesjson.fxcm.com/DataDisplayerMKTs",
+      method: "GET",
+      crossDomain: true,
+      dataType: "jsonp",
+      success: function (json) {
+        let index;
+        if (json.Rates.length > 0) {
+          index = json.Rates.findIndex((object) => {
+            return object.Symbol === currAsset.small;
+          });
+        }
+        let price = "";
+        if (json.Rates[index].Ask > 1) {
+          price = parseFloat(json.Rates[index].Ask)
+            .toFixed(2)
+            .replace(/\d(?=(\d{3})+\.)/g, "$&,");
+        } else {
+          price = parseFloat(json.Rates[index].Ask).toFixed(6);
+        }
+        $("#currPrice").html(price);
+        $("#entry").val(price);
+        $("#entry").focus();
+        $("#assetName").val(currAsset.symbol);
+        $("title").text(`${currAsset.symbol}`);
+        pps = price;
+        $("#dPrice").html(price);
+        $("#ddPrice").html(price);
+        setTimeout(function () {
+          getMData();
+        }, 10000);
+      },
+      error: function () {
+        setTimeout(function () {
+          getMData();
+        }, 10000);
+      },
+    });
+  }
+};
+
+function addfav(symbol) {
+  $.ajax({
+    url: "../../ops/users",
+    method: "POST",
+    data: {
+      request: "addfav",
+      symbol: symbol,
+      price: pps,
+    },
+    success: function (data) {
+      let response = $.parseJSON(data);
+      if (response.status == "success") {
+        swal({
+          title: "Success!",
+          text: response.message,
+          icon: "success",
+        });
+        setTimeout(function () {
+          location.reload();
+        }, 2000);
+      } else {
+        swal({
+          title: "error",
+          text: response.message,
+          icon: "error",
+        });
+      }
+    },
+    error: function (err) {
+      swal({
+        title: "error",
+        text: err.statusText,
+        icon: "error",
+      });
+    },
+  });
+}
+
+function removefav(symbol) {
+  $.ajax({
+    url: "../../ops/users",
+    method: "POST",
+    data: {
+      request: "removefav",
+      symbol: symbol,
+    },
+    success: function (data) {
+      let response = $.parseJSON(data);
+      if (response.status == "success") {
+        swal({
+          title: "Success",
+          text: response.message,
+          icon: "success",
+        });
+        setTimeout(function () {
+          location.reload();
+        }, 2000);
+      } else {
+        swal({
+          title: "error",
+          text: response.message,
+          icon: "error",
+        });
+      }
+    },
+    error: function (err) {
+      swal({
+        title: "error",
+        text: err.statusText,
+        icon: "error",
+      });
+    },
+  });
+}
+
+function placeBuy() {
+  let amount = $("#amount").val();
+  let time = $("#time").val();
+  let leverage = $("#leverage").val();
+  let asset = currAsset.symbol;
+  let price = parseFloat(pps.replace(/,/g, ""));
+  let market = currAsset.market;
+  let symb = currAsset.pairs;
+  let small = currAsset.name;
+  let account = $("#account").val();
+
+  if (amount == null || amount == "") {
+    $("#error").html("Please enter an amount").fadeIn();
+    setTimeout(() => {
+      $("#error").fadeOut();
+    }, 5000);
+  } else if (time == null || time == "" || time < 10) {
+    $("#error").html("The minimun trade time is 10 mins").fadeIn();
+    setTimeout(() => {
+      $("#error").fadeOut();
+    }, 5000);
+  } else if (leverage == null || leverage == "") {
+    $("#error").html("Plese select a leverage").fadeIn();
+    setTimeout(() => {
+      $("#error").fadeOut();
+    }, 5000);
+  } else if (balance <= 0) {
+    $("#error")
+      .html(
+        "You do not have sufficient balance to trade, click <a href='./deposit'>here</a> to deposit"
+      )
+      .fadeIn();
+  } else if (amount > balance) {
+    $("#error")
+      .html(
+        "The amount entered is greater than available'balance, click <a href='./deposit'>here</a> to deposit"
+      )
+      .fadeIn();
+  } else {
+    $.ajax({
+      url: "../../ops/users",
+      type: "POST",
+      data: {
+        request: "placeBuy",
+        amount,
+        time,
+        leverage,
+        asset,
+        price,
+        market,
+        symbol: symb,
+        account,
+        small,
+      },
+      beforeSend: function () {
+        $("#error")
+          .html("Processing <span class='fas fa-spinner fa-spin'></span>")
+          .fadeIn();
+      },
+      success: function (data) {
+        let response = $.parseJSON(data);
+        if (response.status == "success") {
+          $("#error").html(response.message).fadeIn();
+          setTimeout(() => {
+            $("#error").fadeOut();
+            location.reload();
+          }, 5000);
+        } else {
+          $("#error").html(response.message).fadeIn();
+          setTimeout(() => {
+            $("#error").fadeOut();
+          }, 5000);
+        }
+      },
+      cache: false,
+      error: function (err) {
+        $("#error")
+          .html("An error has occured!!" + err.statusText)
+          .fadeIn();
+        setTimeout(() => {
+          $("#error").fadeOut();
+        }, 5000);
+      },
+    });
+  }
+}
+
+//Buy Trade Function
+
+function placeSell() {
+  let amount = $("#amount").val();
+  let time = $("#time").val();
+  let leverage = $("#leverage").val();
+  let asset = currAsset.symbol;
+  let price = parseFloat(pps.replace(/,/g, ""));
+  let market = currAsset.market;
+  let small = currAsset.name;
+  let symb = currAsset.pairs;
+  let account = $("#account").val();
+
+  if (amount == null || amount == "") {
+    $("#error").html("Please enter an amount").fadeIn();
+    setTimeout(() => {
+      $("#error").fadeOut();
+    }, 5000);
+  } else if (time == null || time == "" || time < 10) {
+    $("#error").html("The minimun trade time is 10 mins").fadeIn();
+    setTimeout(() => {
+      $("#error").fadeOut();
+    }, 5000);
+  } else if (leverage == null || leverage == "") {
+    $("#error").html("Plese select a leverage").fadeIn();
+    setTimeout(() => {
+      $("#error").fadeOut();
+    }, 5000);
+  } else if (balance <= 0) {
+    $("#error")
+      .html(
+        "You do not have sufficient balance to trade, click <a href='./deposit'>here</a> to deposit"
+      )
+      .fadeIn();
+  } else if (amount > balance) {
+    $("#error")
+      .html(
+        "The amount entered is greater than available'balance, click <a href='./deposit'>here</a> to deposit"
+      )
+      .fadeIn();
+  } else {
+    $.ajax({
+      url: "../../ops/users",
+      type: "POST",
+      data: {
+        request: "placeSell",
+        amount,
+        time,
+        leverage,
+        asset,
+        price,
+        market,
+        symbol: symb,
+        account,
+        small,
+      },
+      beforeSend: function () {
+        $("#error")
+          .html("Processing <span class='fas fa-spinner fa-spin'></span>")
+          .fadeIn();
+      },
+      success: function (data) {
+        let response = $.parseJSON(data);
+        if (response.status == "success") {
+          $("#error").html(response.message).fadeIn();
+          setTimeout(() => {
+            $("#error").fadeOut();
+            location.reload();
+          }, 5000);
+        } else {
+          $("#error").html(response.message).fadeIn();
+          setTimeout(() => {
+            $("#error").fadeOut();
+          }, 5000);
+        }
+      },
+      cache: false,
+      error: function (err) {
+        $("#error")
+          .html("An error has occured!!" + err.statusText)
+          .fadeIn();
+        setTimeout(() => {
+          $("#error").fadeOut();
+        }, 5000);
+      },
+    });
+  }
+}
+
+const showpass = (pass, span) => {
+  let password = document.getElementById(pass);
+  if (password.type == "password") {
+    password.type = "text";
+    $("#" + span).html("<span class= 'fas fa-eye-slash'></span>");
+  } else {
+    password.type = "password";
+    $("#" + span).html("<span class= 'fas fa-eye'></span>");
+  }
+};
+
+function hideBal() {
+  localStorage.setItem("hidebal", "hidden");
+  $("#hiddenMain").show();
+  $("#hiddenDeposit").show();
+  $("#hiddenProfit").show();
+  $("#hiddenBonus").show();
+  $("#shownMain").hide();
+  $("#shownDeposit").hide();
+  $("#shownProfit").hide();
+  $("#shownBonus").hide();
+
+  $("#hideBtn").hide();
+  $("#showBtn").show();
+}
+
+function showBal() {
+  localStorage.setItem("hidebal", "shown");
+  $("#shownMain").show();
+  $("#shownDeposit").show();
+  $("#shownProfit").show();
+  $("#shownBonus").show();
+  $("#hiddenMain").hide();
+  $("#hiddenDeposit").hide();
+  $("#hiddenProfit").hide();
+  $("#hiddenBonus").hide();
+
+  $("#showBtn").hide();
+  $("#hideBtn").show();
+}
+
+function redir(link, params) {
+  $.redirect(link, params);
+}
+
+function resizeScreen() {
+  if (window.innerWidth < 700) {
+    slimInstance.hide();
+    $("#sidenav-1").attr("data-mdb-mode", "over");
+    $("#sidenav-1").css("width", "290px");
+    $("span.uname").css("display", "none");
+    $("#navbar-brand").attr("width", "60");
+    $("#prof").removeClass("show");
+  } else if (window.innerWidth > 700) {
+    slimInstance.show();
+    $("#sidenav-1").css("width", "290px");
+    $("#prof").addClass("show");
+    $("#content").css("padding-left", "290px");
+    $("#sidenav-1").attr("data-mdb-mode", "side");
+    $("span.uname").css("display", "block");
+    $("#sidenav-1").attr("data-mdb-close-on-esc", "false");
+  }
+}
+
+function verify(mem_id, email, username) {
+  $.ajax({
+    type: "POST",
+    url: "../../ops/adminauth",
+    data: {
+      request: "verifyuser",
+      mem_id,
+      email,
+      username,
+    },
+    beforeSend: function () {
+      $("#errorshow")
+        .html("Verifying user <span class='far fa-spinner fa-spin'></span>")
+        .fadeIn();
+    },
+    success: function (data) {
+      if (data == "success") {
+        $("#errorshow").html(
+          "User verified successfully <span class='far fa-check-circle'></span>"
+        );
+        location.reload();
+      } else {
+        $("#errorshow").html(data).fadeIn();
+      }
+    },
+    error: function (err) {
+      $("#errorshow")
+        .html("An error occured. <br> Try again. " + err.statusText)
+        .fadeIn();
+    },
+  });
+}
+
+function notverify(mem_id, email, username, doctype, frontpage, backpage) {
+  $.ajax({
+    type: "POST",
+    url: "../../ops/adminauth",
+    data: {
+      request: "notverifyuser",
+      mem_id,
+      email,
+      username,
+      doctype,
+      frontpage,
+      backpage,
+    },
+    beforeSend: function () {
+      $("#errorshow")
+        .html("Unverifying user <span class='fas fa-spinner fa-spin'></span>")
+        .fadeIn();
+    },
+    success: function (data) {
+      if (data == "success") {
+        $("#errorshow").html(
+          "User unverified successfully <span class='fas fa-check-circle'></span>"
+        );
+        location.reload();
+      } else {
+        $("#errorshow").html(data).fadeIn();
+      }
+    },
+    error: function (err) {
+      $("#errorshow")
+        .html("An error occured. <br> Try again. " + err.statusText)
+        .fadeIn();
+    },
+  });
+}
+
+function email(mem_id, username, email) {
+  $.ajax({
+    type: "POST",
+    url: "../../ops/adminauth",
+    data: {
+      request: "emailverify",
+      mem_id: mem_id,
+      username: username,
+      email: email,
+    },
+    beforeSend: function () {
+      $("#errorshow1")
+        .html("Verifying Email <span class='far fa-spinner fa-pulse'></span>")
+        .show();
+    },
+    success: function (data) {
+      if (data == "success") {
+        $("#errorshow1")
+          .html(
+            "User email verified successfully <span class='fas fa-check-circle'></span>"
+          )
+          .show();
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      } else {
+        $("#errorshow1").html(data).show();
+        setTimeout(() => {
+          $("#errorshow1").hide();
+        }, 6000);
+      }
+    },
+    error: function () {
+      $("#errorshow1").html("An error occured. <br> Try again.").show();
+    },
+  });
+}
+
+function del(mem_id, username, photo) {
+  $.ajax({
+    type: "POST",
+    url: "../../ops/adminauth",
+    data: {
+      request: "deleteuser",
+      mem_id: mem_id,
+      username: username,
+    },
+    beforeSend: function () {
+      $("#errorshow1")
+        .html("Deleting user <span class='far fa-spinner fa-pulse'></span>")
+        .show();
+    },
+    success: function (data) {
+      if (data == "success") {
+        $("#errorshow1")
+          .html(
+            "User Deleted Successfully <span class='fas fa-check-circle'></span>"
+          )
+          .show();
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      } else {
+        $("#errorshow1").html(data).show();
+        setTimeout(() => {
+          $("#errorshow1").hide();
+        }, 6000);
+      }
+    },
+    error: function () {
+      $("#errorshow1").html("An error occured. <br> Try again.").show();
+    },
+  });
+}

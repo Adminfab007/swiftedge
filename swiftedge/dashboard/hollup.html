@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./traders_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./traders_files/style.min.css">
+    <link rel="stylesheet" href="./traders_files/gradients.css">
+    <link href="./traders_files/icon" rel="stylesheet">
+    <link href="./traders_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./traders_files/datatables.min.css">
+    <link rel="stylesheet" href="./traders_files/tiny-slider.css">
+    <link rel="stylesheet" href="./traders_files/toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" charset="utf-8" async="" src="./traders_files/loader.js.download"></script><script src="./traders_files/jquery-3.6.0.min.js.download"></script>
+<body>
+    <header>
+        <div id="sidenav-1" class="sidenav border-end border-2 ps ps--active-y sidenav-primary" role="navigation" data-mdb-close-on-esc="false" data-mdb-position="fixed" data-mdb-hidden="true" data-mdb-mode="side" style="overflow-y: auto; width: 290px; height: 100vh; position: fixed; transition: 0.3s linear; transform: translateX(0%);" data-mdb-slim="false" data-mdb-slim-collapsed="false" data-mdb-content="#content" data-mdb-focus-trap="false">
+                 <!-- Mobile Hamburger Menu for Navbar -->
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+            <ul class="sidenav-menu mt-5">
+                <li class="ps-2 sidenav-item my-3">
+                    <div style="cursor: pointer;" class="d-flex gap-3 py-3 justify-content-between align-items-center border-bottom border-2 collapsed" data-mdb-target="#prof" data-mdb-toggle="collapse">
+                        
+                        <div class="d-flex gap-3 justify-content-start align-items-center">
+                            <div class="circle2">
+                                <img src="./traders_files/user.png" class="img-fluid img-sc">
+                            </div>
+                            <div class="">
+                                <h6 class="fw-bold mb-0"> Haley</h6>
+                                <p class="small mb-0">Brooks</p>
+                            </div>
+                        </div>
+                        <span class="pe-3 accordion fas fa-angle-down rotate-down"></span>
+                    </div>
+                    <div class="collapse border-bottom border-2 pb-3 show" id="prof">
+                        <div class="d-flex justify-content-between px-2 align-items-center">
+                            <div class="">
+                                <p class="mb-0">Main Balance</p>
+                                <h4 class="fw-bolder text-success">$0.00</h4>
+    
+                            </div>
+                            <div class="badge badge-primary text-center">
+                                <i class="material-icons" style="font-size: 1.99em;">stacked_bar_chart
+                                </i>
+                            </div>
+                        </div>
+                        <div class="px-2 d-flex justify-content-between align-items-center">
+                            <span>Ai Trading: </span>
+                            <span><span class="text-danger">Inactive <i class="fas fa-times-circle"></i></span>
+                        </span></div>
+                        <div class="px-2 d-flex justify-content-between align-items-center">
+                            <span>Wallet: </span>
+                            <span><span class="text-danger">Not connected <i class="fas fa-times-circle"></i></span>
+                        </span></div>
+                        <div class="px-2 d-flex justify-content-between align-items-center">
+                            <span>Balance: </span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="px-2 d-flex justify-content-between align-items-center">
+                            <span>Profit: </span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="px-2 d-flex justify-content-between align-items-center">
+                            <a href="/deposit.html" class="d-flex justify-content-start align-items-center btn btn-sm seablue-gradient"><span>Deposit</span></a>
+                            <a href="withdrawal.html" class="d-flex justify-content-start align-items-center btn btn-sm blokker-gradient"><span>Withdrawal</span></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="sidenav-item fw-bold">
+                    <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/">
+                        <i class="material-icons me-2" style="font-size: 0.99em;">dashboard</i><span> Home</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/chart">
+                        <i class="fas fa-chart-line me-2"></i><span> Place Trade</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/trades">
+                        <i class="fas fa-chart-bar me-2"></i><span> My trades</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/loan">
+                        <i class="fas fa-piggy-bank me-2"></i><span> Take Loan</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="deposit.html">
+                        <i class="fas fa-sign-in-alt me-2"></i><span> Deposit</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="commodities.html">
+                        <i class="fas fa-landmark me-2"></i><span> Commodities</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/transactions">
+                        <i class="fas fa-calendar-alt me-2"></i><span> All Transactions</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link active ripple-surface" href="traders.html">
+                        <i class="fas fa-user-tie me-2"></i><span> Copy Traders</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="withdrawal.html">
+                        <i class="fas fa-wallet me-2"></i><span> Withdrawal</span>
+                    </a>
+                </li>
+                <li class="sidenav-item mb-1">
+                    <a class="sidenav-link ripple-surface" href="./kyc.html">
+                        <i class="fas fa-users me-2"></i><span> Verification</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/profile">
+                        <i class="fas fa-cogs me-2"></i><span> User settings</span>
+                    </a>
+                </li>
+                <li class="sidenav-item mb-1">
+                    <a class="sidenav-link text-danger ripple-surface" href="https://stocksagefx.com/app/account/logout">
+                        <i class="fas fa-power-off me-2"></i><span> Sign out</span>
+                    </a>
+                </li>
+                <li class="sidenav-item justify-content-center align-items-center d-flex">
+                    <i class="fas fa-sun"></i>
+                    <div class="ms-2 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher">
+                    </div>
+                    <i class="fas fa-moon"></i>
+                </li>
+            </ul>
+            <div class="d-flex my-3 justify-content-center">
+                <div class="gtranslate_wrapper gt_container--wz96ug"><!-- GTranslate: https://gtranslate.com --><select class="gt_selector notranslate" aria-label="Select Language"><option value="">Select Language</option><option value="en|af" data-gt-href="#">Afrikaans</option><option value="en|sq" data-gt-href="#">Albanian</option><option value="en|am" data-gt-href="#">Amharic</option><option value="en|ar" data-gt-href="#">Arabic</option><option value="en|hy" data-gt-href="#">Armenian</option><option value="en|az" data-gt-href="#">Azerbaijani</option><option value="en|eu" data-gt-href="#">Basque</option><option value="en|be" data-gt-href="#">Belarusian</option><option value="en|bn" data-gt-href="#">Bengali</option><option value="en|bs" data-gt-href="#">Bosnian</option><option value="en|bg" data-gt-href="#">Bulgarian</option><option value="en|ca" data-gt-href="#">Catalan</option><option value="en|ceb" data-gt-href="#">Cebuano</option><option value="en|ny" data-gt-href="#">Chichewa</option><option value="en|zh-CN" data-gt-href="#">Chinese (Simplified)</option><option value="en|zh-TW" data-gt-href="#">Chinese (Traditional)</option><option value="en|co" data-gt-href="#">Corsican</option><option value="en|hr" data-gt-href="#">Croatian</option><option value="en|cs" data-gt-href="#">Czech</option><option value="en|da" data-gt-href="#">Danish</option><option value="en|nl" data-gt-href="#">Dutch</option><option value="en|en" data-gt-href="#" selected="">English</option><option value="en|eo" data-gt-href="#">Esperanto</option><option value="en|et" data-gt-href="#">Estonian</option><option value="en|tl" data-gt-href="#">Filipino</option><option value="en|fi" data-gt-href="#">Finnish</option><option value="en|fr" data-gt-href="#">French</option><option value="en|fy" data-gt-href="#">Frisian</option><option value="en|gl" data-gt-href="#">Galician</option><option value="en|ka" data-gt-href="#">Georgian</option><option value="en|de" data-gt-href="#">German</option><option value="en|el" data-gt-href="#">Greek</option><option value="en|gu" data-gt-href="#">Gujarati</option><option value="en|ht" data-gt-href="#">Haitian Creole</option><option value="en|ha" data-gt-href="#">Hausa</option><option value="en|haw" data-gt-href="#">Hawaiian</option><option value="en|iw" data-gt-href="#">Hebrew</option><option value="en|hi" data-gt-href="#">Hindi</option><option value="en|hmn" data-gt-href="#">Hmong</option><option value="en|hu" data-gt-href="#">Hungarian</option><option value="en|is" data-gt-href="#">Icelandic</option><option value="en|ig" data-gt-href="#">Igbo</option><option value="en|id" data-gt-href="#">Indonesian</option><option value="en|ga" data-gt-href="#">Irish</option><option value="en|it" data-gt-href="#">Italian</option><option value="en|ja" data-gt-href="#">Japanese</option><option value="en|jw" data-gt-href="#">Javanese</option><option value="en|kn" data-gt-href="#">Kannada</option><option value="en|kk" data-gt-href="#">Kazakh</option><option value="en|km" data-gt-href="#">Khmer</option><option value="en|ko" data-gt-href="#">Korean</option><option value="en|ku" data-gt-href="#">Kurdish (Kurmanji)</option><option value="en|ky" data-gt-href="#">Kyrgyz</option><option value="en|lo" data-gt-href="#">Lao</option><option value="en|la" data-gt-href="#">Latin</option><option value="en|lv" data-gt-href="#">Latvian</option><option value="en|lt" data-gt-href="#">Lithuanian</option><option value="en|lb" data-gt-href="#">Luxembourgish</option><option value="en|mk" data-gt-href="#">Macedonian</option><option value="en|mg" data-gt-href="#">Malagasy</option><option value="en|ms" data-gt-href="#">Malay</option><option value="en|ml" data-gt-href="#">Malayalam</option><option value="en|mt" data-gt-href="#">Maltese</option><option value="en|mi" data-gt-href="#">Maori</option><option value="en|mr" data-gt-href="#">Marathi</option><option value="en|mn" data-gt-href="#">Mongolian</option><option value="en|my" data-gt-href="#">Myanmar (Burmese)</option><option value="en|ne" data-gt-href="#">Nepali</option><option value="en|no" data-gt-href="#">Norwegian</option><option value="en|ps" data-gt-href="#">Pashto</option><option value="en|fa" data-gt-href="#">Persian</option><option value="en|pl" data-gt-href="#">Polish</option><option value="en|pt" data-gt-href="#">Portuguese</option><option value="en|pa" data-gt-href="#">Punjabi</option><option value="en|ro" data-gt-href="#">Romanian</option><option value="en|ru" data-gt-href="#">Russian</option><option value="en|sm" data-gt-href="#">Samoan</option><option value="en|gd" data-gt-href="#">Scottish Gaelic</option><option value="en|sr" data-gt-href="#">Serbian</option><option value="en|st" data-gt-href="#">Sesotho</option><option value="en|sn" data-gt-href="#">Shona</option><option value="en|sd" data-gt-href="#">Sindhi</option><option value="en|si" data-gt-href="#">Sinhala</option><option value="en|sk" data-gt-href="#">Slovak</option><option value="en|sl" data-gt-href="#">Slovenian</option><option value="en|so" data-gt-href="#">Somali</option><option value="en|es" data-gt-href="#">Spanish</option><option value="en|su" data-gt-href="#">Sundanese</option><option value="en|sw" data-gt-href="#">Swahili</option><option value="en|sv" data-gt-href="#">Swedish</option><option value="en|tg" data-gt-href="#">Tajik</option><option value="en|ta" data-gt-href="#">Tamil</option><option value="en|te" data-gt-href="#">Telugu</option><option value="en|th" data-gt-href="#">Thai</option><option value="en|tr" data-gt-href="#">Turkish</option><option value="en|uk" data-gt-href="#">Ukrainian</option><option value="en|ur" data-gt-href="#">Urdu</option><option value="en|uz" data-gt-href="#">Uzbek</option><option value="en|vi" data-gt-href="#">Vietnamese</option><option value="en|cy" data-gt-href="#">Welsh</option><option value="en|xh" data-gt-href="#">Xhosa</option><option value="en|yi" data-gt-href="#">Yiddish</option><option value="en|yo" data-gt-href="#">Yoruba</option><option value="en|zu" data-gt-href="#">Zulu</option></select><div id="google_translate_element2"></div></div>
+            </div>
+            <div class="sidenav-footer mt-5">
+                <p class="text-center">© 2025 SwiftEdgeCapita</p>
+            </div>
+        <div class="ps__rail-x" style="left: 0px; bottom: -496px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 496px; height: 598px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 272px; height: 326px;"></div></div><div class="ps__rail-x" style="left: 0px; bottom: -496px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 496px; height: 598px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 272px; height: 326px;"></div></div></div>
+        <!-- Sidenav -->
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar bg-body-tertiary navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a onclick="slimInstance.show(); $(&#39;#prof&#39;).addClass(&#39;show&#39;);" class="nav-link me-3" data-mdb-content="#slim-content" aria-haspopup="true">
+                    <i class="fas fa-bars" style="cursor: pointer;"></i>
+                    </a><a href="https://stocksagefx.com/app/account/" class="navbar-brand">
+                        <img src="./traders_files/logo-light.png" id="navbar-brand" class="img-fluid" width="80">
+                    </a>
+                
+                <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                    <li class="nav-item me-3">
+                                                    <a href="javascript:history.back();" class="nav-link" aria-expanded="false">
+                                <small><i class="fas fa-angle-left fa-2x"></i> </small>
+                            </a>
+                                            </li>
+                    <!-- <li class="nav-item me-3">
+                        <a onclick="$('#langmodal').modal('show');" style="cursor: pointer;" class="nav-link"> <i class="fas fa-language"></i></a>
+                    </li> -->
+                    <li class="nav-item me-3">
+                        <a href="wallet.html" style="cursor: pointer;" class="nav-link position-relative">
+                            <i class="fas fa-wallet"></i>
+                            <span class="position-absolute ai-check text-danger"> <i class="fas fa-times-circle"></i>                        </span></a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a href="https://stocksagefx.com/app/account/ai-trading" style="cursor: pointer;" class="nav-link position-relative">
+                            <i class="fas fa-robot"></i>
+                            <span class="position-absolute ai-check text-danger"> <i class="fas fa-times-circle"></i>                        </span></a>
+                    </li>
+                    <li class="nav-item dropdown me-2" id="nots">
+                        <a class="dropdown-toggle position-relative d-flex align-items-center" href="traders.html#" id="notifDropDown" data-mdb-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="top-8 position-absolute translate-middle unames text-danger rounded-pill">0<span class="visually-hidden">unread messages</span>
+                        </span></a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-end" aria-labelledby="notifDropDown">
+                                                            <li class="p-4 text-start">You do not have any notifications</li>
+                                                        </ul>
+                    </li>
+                    <li class="nav-item dropdown" id="profileNav">
+                        <a class="dropdown-toggle d-flex align-items-center" id="navbarDropdownMenuAvatar" data-mdb-toggle="dropdown" role="button" aria-expanded="false" href="traders.html#">
+                            <div class="circle">
+                                <img class="img-sc" height="25" src="./traders_files/user.png" loading="lazy">
+                            </div>
+                            <span class="uname" style="display: block;">Haley</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                            <li>
+                                <div class="border-bottom border-2 pt-3 pb-2 px-2">
+                                    <div class="d-flex justify-content-between px-2 align-items-center">
+                                        <div class="">
+                                            <p class="mb-0">Main Balance</p>
+                                            <h4 class="fw-bolder text-success">$0.00</h4>
+                                        </div>
+                                        <div class="badge badge-primary text-center">
+                                            <i class="material-icons" style="font-size: 1.99em;">stacked_bar_chart
+                                            </i>
+                                        </div>
+                                    </div>
+                                    <div class="px-2 d-flex justify-content-between align-items-center">
+                                        <span>Ai Trading: </span>
+                                        <span><span class="ai-check text-danger">Inactive <i class="fas fa-times-circle"></i></span>
+                                    </span></div>
+                                    <div class="px-2 d-flex justify-content-between align-items-center">
+                                        <span>Wallet: </span>
+                                        <span><span class="text-danger">Not connected <i class="fas fa-times-circle"></i></span>
+                                    </span></div>
+                                    <div class="px-2 d-flex justify-content-between align-items-center">
+                                        <span>Balance: </span>
+                                        <span>$0.00</span>
+                                    </div>
+                                    <div class="px-2 d-flex justify-content-between align-items-center">
+                                        <span>Profit: </span>
+                                        <span>$0.00</span>
+                                    </div>
+                                    <div class="px-2">
+                                        <a href="deposit.html" class="d-flex gap-3 mb-2 text-info justify-content-start align-items-center"><span>Deposit</span><i class="material-icons" style="font-size: 0.99em;">account_balance_wallet</i></a>
+                                        <a href="withdrawal.html" class="d-flex gap-3 text-info justify-content-start align-items-center"><span>Withdrawal</span><i class="material-icons" style="font-size: 0.99em;">account_balance_wallet</i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="https://stocksagefx.com/app/account/profile">My profile</a>
+                            </li>
+                            <li class="">
+                                <a class="dropdown-item text-danger" href="https://stocksagefx.com/app/account/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <script>
+        // Select the sidenav and hamburger button
+        const sidenav = document.getElementById('sidenav-1');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+    
+        // Toggle sidenav on/off when the hamburger button is clicked
+        hamburgerBtn.addEventListener('click', function() {
+          if (sidenav.style.transform === 'translateX(0%)') {
+            sidenav.style.transform = 'translateX(-100%)'; // Hide sidenav
+          } else {
+            sidenav.style.transform = 'translateX(0%)'; // Show sidenav
+          }
+        });
+      </script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+          
+</body>
+</html>

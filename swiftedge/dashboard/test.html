@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <head>
+        <!-- Material Icons CDN -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      </head>
+      
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" href="https://stocksagefx.com/assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./traders_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./traders_files/style.min.css">
+    <link rel="stylesheet" href="./traders_files/gradients.css">
+    <link href="./traders_files/icon" rel="stylesheet">
+    <link href="./traders_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./traders_files/datatables.min.css">
+    <link rel="stylesheet" href="./traders_files/tiny-slider.css">
+    <link rel="stylesheet" href="./traders_files/toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" charset="utf-8" async="" src="./traders_files/loader.js.download"></script><script src="./traders_files/jquery-3.6.0.min.js.download"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-dark text-light fixed-top">
+            <div class="container-fluid">
+                <!-- Hamburger Menu for Mobile and Desktop (Always visible) -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <!-- Brand Logo -->
+                <!-- <a href="https://stocksagefx.com/app/account/" class="navbar-brand">
+                    <img src="./traders_files/logo-light.png" id="navbar-brand" class="img-fluid" width="80" alt="Logo">
+                </a> -->
+    
+                <!-- Navbar Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                        <li class="nav-item me-3">
+                            <a href="javascript:history.back();" class="nav-link" aria-expanded="false">
+                                <small><i class="fas fa-angle-left fa-2x "  style="color: #555;"></i> </small>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a href="./wallet.html" style="cursor: pointer;" class="nav-link position-relative">
+                                <i class="fas fa-wallet"  style="color: #555;"></i>
+                                <span class="position-absolute ai-check text-danger">
+                                    <i class="fas fa-times-circle "></i>
+                                </span>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item me-2">
+                            <a href="https://stocksagefx.com/app/account/ai-trading" style="cursor: pointer;" class="nav-link position-relative">
+                                <i class="fas fa-robot " style="color: #555;"></i>
+                                <span class="position-absolute ai-check text-danger">
+                                    <i class="fas fa-times-circle"></i>
+                                </span>
+                            </a>
+                        </li> -->
+                        <li class="nav-item dropdown me-2" id="nots">
+                            <a class="nav-link dropdown-toggle position-relative d-flex align-items-center" href="./traders.html" id="notifDropDown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="top-8 position-absolute translate-middle unames text-danger rounded-pill">0
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notifDropDown">
+                                <li class="p-4 text-start">You do not have any notifications</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+      <!-- Sidenav (Sidebar) -->
+<div id="sidenav-1" class="sidenav border-end border-2 ps ps--active-y sidenav-primary bg-dark text-light"  role="navigation" data-mdb-close-on-esc="false" data-mdb-position="fixed" data-mdb-hidden="true" data-mdb-mode="side" style="overflow-y: auto; width: 290px; height: 100vh; position: fixed; transition: 0.3s linear; transform: translateX(-100%);" data-mdb-slim="false" data-mdb-slim-collapsed="false" data-mdb-content="#content" data-mdb-focus-trap="false">
+    <ul class="sidenav-menu mt-5" style="overflow-y: auto; max-height: calc(100vh - 80px);">
+        <li class="ps-2 sidenav-item my-3">
+            <div style="cursor: pointer;" class="d-flex gap-3 py-3 justify-content-between align-items-center border-bottom border-2 collapsed" data-mdb-target="#prof" data-mdb-toggle="collapse">
+                <div class="d-flex gap-3 justify-content-start align-items-center">
+                    <div class="circle2">
+                        <img src="./traders_files/user.png" class="img-fluid img-sc">
+                    </div>
+                    <div class="">
+                        <h6 class="fw-bold mb-0"> Haley</h6>
+                        <p class="small mb-0">Brooks</p>
+                    </div>
+                </div>
+                <span class="pe-3 accordion fas fa-angle-down rotate-down"></span>
+            </div>
+            <div class="collapse border-bottom border-2 pb-3 show" id="prof">
+                <div class="d-flex justify-content-between px-2 align-items-center">
+                    <div class="">
+                        <p class="mb-0">Main Balance</p>
+                        <h4 class="fw-bolder text-success" id="balance1"></h4>
+                    </div>
+                    <div class="badge badge-primary text-center">
+                        <i class="material-icons" style="font-size: 1.99em;"></i>
+                    </div>
+                </div>
+                <!-- <div class="px-2 d-flex justify-content-between align-items-center">
+                    <span>Ai Trading: </span>
+                    <span><span class="text-danger">Inactive <i class="fas fa-times-circle"></i></span></span>
+                </div> -->
+                <div class="px-2 d-flex justify-content-between align-items-center">
+                    <span>Wallet: </span>
+                    <span><span class="text-danger" id="walletStatus">loading. . . <i class="fas fa-times-circle" style="color:#fff"></i></span></span>
+                </div>
+                <!-- <div class="px-2 d-flex justify-content-between align-items-center">
+                    <span>Balance: </span>
+                    <span id="balance"></span>
+                </div> -->
+                <div class="px-2 d-flex justify-content-between align-items-center">
+                    <span>Profit: </span>
+                    <span id="profit1"></span>
+                </div>
+                <div class="px-2 d-flex justify-content-between align-items-center">
+                    <a href="./deposit.html" class="d-flex justify-content-start align-items-center btn btn-sm seablue-gradient"><span>Deposit</span></a>
+                    <a href="./withdrawal.html" class="d-flex justify-content-start align-items-center btn btn-sm blokker-gradient"><span>Withdrawal</span></a>
+                </div>
+            </div>
+        </li>
+        <li class="sidenav-item fw-bold">
+            <a class="sidenav-link ripple-surface" href="./dashboard.html">
+                <i class="material-icons me-2" style="font-size: 0.99em;">dashboard</i><span> Home</span>
+            </a>
+        </li>
+        <!-- <li class="sidenav-item  fw-bold">
+            <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/chart">
+                <i class="fas fa-chart-line me-2"></i><span> Place Trade</span>
+            </a>
+        </li> -->
+        <li class="sidenav-item">
+            <a class="sidenav-link ripple-surface" href="./tradinghistory.html">
+                <i class="fas fa-chart-bar me-2"></i><span> My trades</span>
+            </a>
+        </li>
+        <!-- <li class="sidenav-item">
+            <a class="sidenav-link ripple-surface" href="https://stocksagefx.com/app/account/loan">
+                <i class="fas fa-piggy-bank me-2"></i><span> Take Loan</span>
+            </a>
+        </li> -->
+        <li class="sidenav-item">
+            <a class="sidenav-link ripple-surface" href="./deposit.html">
+                <i class="fas fa-sign-in-alt me-2"></i><span> Deposit</span>
+            </a>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link ripple-surface" href="./commodities.html">
+                <i class="fas fa-landmark me-2"></i><span> Commodities</span>
+            </a>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link ripple-surface" href="./transactions.html">
+                <i class="fas fa-calendar-alt me-2"></i><span> All Transactions</span>
+            </a>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link active ripple-surface" href="./traders.html">
+                <i class="fas fa-user-tie me-2"></i><span> Copy Traders</span>
+            </a>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link ripple-surface" href="./withdrawal.html">
+                <i class="fas fa-wallet me-2"></i><span> Withdrawal</span>
+            </a>
+        </li>
+        <li class="sidenav-item mb-1">
+            <a class="sidenav-link ripple-surface" href="./kyc.html">
+                <i class="fas fa-users me-2"></i><span> Verification</span>
+            </a>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link ripple-surface" href="./settings.html">
+                <i class="fas fa-cogs me-2"></i><span> User settings</span>
+            </a>
+        </li>
+        <li class="sidenav-item mb-1">
+            <a class="sidenav-link text-danger ripple-surface" href="../login.html">
+                <i class="fas fa-power-off me-2"></i><span> Sign out</span>
+            </a>
+        </li>
+        <li class="sidenav-item justify-content-center align-items-center d-flex">
+            <i class="fas fa-sun"></i>
+            <div class="ms-2 form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher">
+            </div>
+            <i class="fas fa-moon"></i>
+        </li>
+    </ul>
+</div>
+
+        <!-- Hamburger Button (Visible on Mobile and Desktop) -->
+        <button id="hamburgerBtn"  class="btn d-block" style="position: fixed; left: 10px; top: 30px; z-index: 1050;margin-top: -20px;">
+            <i class="fas fa-bars fa-2x"></i>
+        </button>
+    
+        <!-- Sidenav Toggle Script -->
+        <script>
+            // Select the sidenav and hamburger button
+            const sidenav = document.getElementById('sidenav-1');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+    
+            // Toggle sidenav on/off when the hamburger button is clicked
+            hamburgerBtn.addEventListener('click', function() {
+                if (sidenav.style.transform === 'translateX(0%)') {
+                    sidenav.style.transform = 'translateX(-100%)'; // Hide sidenav
+                } else {
+                    sidenav.style.transform = 'translateX(0%)'; // Show sidenav
+                }
+            });
+        </script>
+
+        <script>
+
+$(document).ready(async function () {
+    
+   var fetchUser= localStorage.getItem  ("user")
+   var user=JSON.parse(fetchUser)
+
+   console.log(user.balance);
+   
+   $("#balance1").text("$"+user.balance)
+   $("#profit1").text("$"+user.profit)
+   $("#walletStatus").text(localStorage.getItem("walletStatus"))
+})
+
+
+        </script>
+    </header>
+    
+      <!-- Bootstrap JS Bundle (for collapse functionality) -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+      
+</body>
+</html>
