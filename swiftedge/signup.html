@@ -500,6 +500,7 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                    data: { ...values },
                    timeout: 30000,
                    success: function (data) {
+					$('.live-section').show()
 					$('.live-section').html("Account was successfully created").addClass('alert-success')
                   
                         if (data.otp && data.otpExpiration) {
