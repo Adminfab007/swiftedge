@@ -2115,7 +2115,7 @@ body.is-hidden-infobar [ob-infobar] {
 
 #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-close-btn-container .onetrust-close-btn-handler.banner-close-button {
     background-color: #f5f9ff;
-    background-image: url(https://Swiftedgecapita.com/errorpage?error=404);
+    background-image: url(https://SwiftEdgeCapita.com/errorpage?error=404);
     border-radius: 50%;
     height: 1.75rem;
     width: 1.75rem
@@ -2293,7 +2293,7 @@ body.is-hidden-infobar [ob-infobar] {
 
 #onetrust-consent-sdk #onetrust-pc-sdk .ot-close-icon {
     background-color: #f5f9ff !important;
-    background-image: url(https://Swiftedgecapita.com/errorpage?error=404);
+    background-image: url(https://SwiftEdgeCapita.com/errorpage?error=404);
     border-radius: 50%;
     height: 1.75rem;
     width: 1.75rem
@@ -4603,7 +4603,7 @@ body.has-keyboard .o-select.has-focus {
 }
 
 .s-checklist li:before {
-    content: url(https://Swiftedgecapita.com/errorpage?error=404);
+    content: url(https://SwiftEdgeCapita.com/errorpage?error=404);
     height: 1em;
     left: 0;
     position: absolute;

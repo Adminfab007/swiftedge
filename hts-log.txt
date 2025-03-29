@@ -1,21 +1,21 @@
-HTTrack3.49-2+htsswf+htsjava launched on Fri, 24 Jan 2025 23:48:11 at https://www.Swiftedgecapita.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
-Swiftedgecapita
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 24 Jan 2025 23:48:11 at https://www.SwiftEdgeCapita.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+SwiftEdgeCapita
 (winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.stocksagefx.com -O1 "C:\webby\sage1" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
 
 
 
 Information, Warnings and Errors reported for this mirror:
 
-note:	the hts-log.txt file, and hts-cacheSwiftedgecapitay contain sensitive information,
-Swiftedgecapitawiftedgecapita
-	such as username/password authenticationSwiftedgecapitaes mirrored in this project
-Swiftedgecapitawiftedgecapita
-	do not share these files/folders if you Swiftedgecapitainformation to remain private
-Swiftedgecapitawiftedgecapita
-Swiftedgecapita
-Swiftedgecapitawiftedgecapita
-23:48:13	Warning: 	Found for https://www.Swiftedgecapita.com/robots.txt
-Swiftedgecapitawiftedgecapita
+note:	the hts-log.txt file, and hts-cacheSwiftEdgeCapitay contain sensitive information,
+SwiftEdgeCapitawiftedgecapita
+	such as username/password authenticationSwiftEdgeCapitaes mirrored in this project
+SwiftEdgeCapitawiftedgecapita
+	do not share these files/folders if you SwiftEdgeCapitainformation to remain private
+SwiftEdgeCapitawiftedgecapita
+SwiftEdgeCapita
+SwiftEdgeCapitawiftedgecapita
+23:48:13	Warning: 	Found for https://www.SwiftEdgeCapita.com/robots.txt
+SwiftEdgeCapitawiftedgecapita
 23:48:13	Warning: 	File has moved from https://www.stocksagefx.com/robots.txt to https://stocksagefx.com/errorpage?error=404
 
 23:49:11	Warning: 	Found for https://www.stocksagefx.com/assets/images/testimonials/
