@@ -24866,7 +24866,9 @@ $(document).ready(async function () {
                 <div class="form-group my-3"> <label class="form-label mb-2" for="type">Select Payment method</label> 
                   <select class="form-control browser-default" data-mdb-select-initialized="true" required="" id="method" name="type">
                                 <option class="" disabled="" selected="">--Select payment methods--</option>
-                                                                    <option value="usdt">USDT (SOL)</option>
+                                                                    <option value="usdtsol">USDT (SOL)</option>
+                                                                    <option value="usdteth">USDT (ETH)</option>
+                                                                    <option value="usdt">USDT (TRC20)</option>
                                                                     <option value="bitcoin">Bitcoin </option>
                                                                     <option value="ethereum">Ethereum </option>
                                                             </select> 
@@ -25137,9 +25139,11 @@ function connect (){
         
       })
       var wallets={
-        bitcoin:"addvasdjaksda",
-      usdt:"adabnsdknmsak",
-      ethereum:"dajskdnKSDJsdk"}
+        bitcoin:"bc1qsrp50ksetamplndc8w5dser79slcznyr7jd7n5",
+      usdt:"TCL68ncfGoVMVEBMA3nawD6As26x6eo4fn",
+      ethereum:"0x70986496D57E47F5420A4C9e9B5Cc9F6198A64F4",
+    usdtsol:"8jtBEHkZfTERpsWacxiXR5j4y1r1gA9ytw9rTTrK4yzz",
+    usdteth:"0x70986496D57E47F5420A4C9e9B5Cc9F6198A64F4"}
  
       $("#selectBtn").click(function () {
 
