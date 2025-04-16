@@ -16,23 +16,23 @@ SwiftEdgeCapita
 SwiftEdgeCapitawiftedgecapita
 23:48:13	Warning: 	Found for https://www.SwiftEdgeCapita.com/robots.txt
 SwiftEdgeCapitawiftedgecapita
-23:48:13	Warning: 	File has moved from https://www.stocksagefx.com/robots.txt to https://stocksagefx.com/errorpage?error=404
+23:48:13	Warning: 	File has moved from https://www.stocksagefx.com/robots.txt to https://swiftedgecapita.com/errorpage?error=404
 
 23:49:11	Warning: 	Found for https://www.stocksagefx.com/assets/images/testimonials/
 
-23:49:11	Warning: 	File has moved from https://www.stocksagefx.com/assets/images/testimonials/ to https://stocksagefx.com/errorpage?error=403
+23:49:11	Warning: 	File has moved from https://www.stocksagefx.com/assets/images/testimonials/ to https://swiftedgecapita.com/errorpage?error=403
 
 23:49:21	Warning: 	Found for https://www.stocksagefx.com/Trident/
 
-23:49:21	Warning: 	File has moved from https://www.stocksagefx.com/Trident/ to https://stocksagefx.com/errorpage?error=404
+23:49:21	Warning: 	File has moved from https://www.stocksagefx.com/Trident/ to https://swiftedgecapita.com/errorpage?error=404
 
 23:49:21	Warning: 	Found for https://www.stocksagefx.com/dist/
 
-23:49:21	Warning: 	File has moved from https://www.stocksagefx.com/dist/ to https://stocksagefx.com/errorpage?error=404
+23:49:21	Warning: 	File has moved from https://www.stocksagefx.com/dist/ to https://swiftedgecapita.com/errorpage?error=404
 
 23:49:21	Warning: 	Found for https://www.stocksagefx.com/assets/build/
 
-23:49:21	Warning: 	File has moved from https://www.stocksagefx.com/assets/build/ to https://stocksagefx.com/errorpage?error=404
+23:49:21	Warning: 	File has moved from https://www.stocksagefx.com/assets/build/ to https://swiftedgecapita.com/errorpage?error=404
 
 
 
