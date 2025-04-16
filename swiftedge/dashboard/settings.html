@@ -25004,6 +25004,8 @@ $(document).ready(async function () {
  $("#firstAlias").text(user.firstName)
  $("#lastAlias").text(user.lastName)
  $("#walletStatus").text(localStorage.getItem("walletStatus"))
+ $("#reflink").text(user.referralCode)
+
 })
 
 
@@ -25017,9 +25019,9 @@ $(document).ready(async function () {
           <p class="small">Edit account details</p> 
         </div> 
         <div class="p-3 col-md-9 me-auto ms-auto"> 
-          <h6 class="text-center ">Referral Link</h6> 
+          <h6 class="text-center ">Referral Code</h6> 
           <div class="form-outline d-flex"> 
-            <input class="form-control placeholder-active active" type="text" id="reflink" readonly="" name="reflink" placeholder="https://www.stocksagefx.com/signup?ref=false-pegasus" value="https://www.stocksagefx.com/signup?ref=false-pegasus"> 
+            <input class="form-control placeholder-active active" type="text" id="reflink" readonly="" name="reflink" placeholder="" value=""> 
             <span class="fas fa-clipboard text-white p-2 seablue-gradient" style="border-radius: 5px; cursor:pointer;" id="copy"></span> <div class="form-notch">
               <div class="form-notch-leading" style="width: 9px;"></div>
               <div class="form-notch-middle" style="width: 0px;"></div>
@@ -25816,6 +25818,18 @@ async function resetPassword({ password }) {
      </script>
      
      <script data-savepage-type="text/javascript" type="text/plain" data-savepage-src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+     </script>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e07fe02c5c7b6031bb3ad0bbf9c64163ade43a1f';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
     </script> <script data-savepage-type="" type="text/plain" data-savepage-src="../../assets/js/mdb.min.js">
     </script> <script data-savepage-type="" type="text/plain" data-savepage-src="../../assets/js/switchtheme.js">
     </script> <script data-savepage-type="" type="text/plain" data-savepage-src="../../assets/js/jquery-redirect.js">
