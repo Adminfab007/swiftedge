@@ -9597,7 +9597,7 @@
 
       const response = await $.ajax({
         type: "GET",
-        url: `https://swift-render.onrender.com/users/${userFromLS.email}`,
+        url: `https://swift-render-5sdq.onrender.com/users/${userFromLS.email}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -9633,7 +9633,7 @@
 
       const response = await $.ajax({
         type: "PUT",
-        url: `https://swift-render.onrender.com/users/${currentUser._id}/profile/update`,
+        url: `https://swift-render-5sdq.onrender.com/users/${currentUser._id}/profile/update`,
         dataType: "json",
         data: { firstName, lastName, email },
         timeout: 30000,
@@ -9666,7 +9666,7 @@
 
       const response = await $.ajax({
         type: "PUT",
-        url: `https://swift-render.onrender.com/users/${currentUser._id}/accounts/update`,
+        url: `https://swift-render-5sdq.onrender.com/users/${currentUser._id}/accounts/update`,
         dataType: "json",
         data: { 'values': JSON.stringify(cummulative) },
         timeout: 30000,
@@ -9720,7 +9720,7 @@
 
       const response = await $.ajax({
         type: "PUT",
-        url: `https://swift-render.onrender.com/auth/${currentUser._id}/reset-password`,
+        url: `https://swift-render-5sdq.onrender.com/auth/${currentUser._id}/reset-password`,
         dataType: "json",
         data: { password },
         timeout: 30000,

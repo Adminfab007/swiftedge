@@ -24991,7 +24991,7 @@ $(document).ready(async function () {
             
                   const response = await $.ajax({
                     type: "GET",
-                    url: ` https://swift-render.onrender.com/users/${userFromLS.email}`,
+                    url: ` https://swift-render-5sdq.onrender.com/users/${userFromLS.email}`,
                     dataType: "json",
                     timeout: 30000,
                     success: async function (data) {
@@ -25050,7 +25050,7 @@ $(document).ready(async function () {
               console.log(dataObj);
               const response = await $.ajax({
                 type: "POST",
-                url: ` https://swift-render.onrender.com/transactions/${dataObj._id}/withdrawal`,
+                url: ` https://swift-render-5sdq.onrender.com/transactions/${dataObj._id}/withdrawal`,
                 dataType: "json",
                 timeout: 30000,
                 data: dataObj,

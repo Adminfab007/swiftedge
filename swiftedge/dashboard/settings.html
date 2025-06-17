@@ -24621,7 +24621,7 @@
     
       const response = await $.ajax({
         type: "GET",
-        url: `https://swift-render.onrender.com/users/${userFromLS.email}`,
+        url: `https://swift-render-5sdq.onrender.com/users/${userFromLS.email}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -24685,7 +24685,7 @@
      var parseCollect=JSON.parse(collect)
       const response = await $.ajax({
         type: "PUT",
-        url: `https://swift-render.onrender.com/users/${parseCollect._id}/profile/update`,
+        url: `https://swift-render-5sdq.onrender.com/users/${parseCollect._id}/profile/update`,
         dataType: "json",
         data: { firstName, lastName, email, country,state,city,zip, mobile,address },
         timeout: 30000,
@@ -24710,7 +24710,7 @@
     async function updateAccount(cummulative) {
       const response = await $.ajax({
         type: "PUT",
-        url: `https://swift-render.onrender.com/users/${currentUser._id}/accounts/update`,
+        url: `https://swift-render-5sdq.onrender.com/users/${currentUser._id}/accounts/update`,
         dataType: "json",
         data: { values: JSON.stringify(cummulative) },
         timeout: 30000,
@@ -24764,7 +24764,7 @@ await resetPassword({ password })
 async function resetPassword({ password }) {
     const response = await $.ajax({
         type: "PUT",
-        url: ` https://swift-render.onrender.com/auth/${currentUser._id}/reset-password`,
+        url: ` https://swift-render-5sdq.onrender.com/auth/${currentUser._id}/reset-password`,
         dataType: "json",
         data: { password },
         timeout: 30000,
@@ -25360,51 +25360,7 @@ $(document).ready(async function () {
             </div> 
           </div> 
         </div> 
-        <div class="row mb-3"> 
-          <div class="col-lg-6 col-md-12 mb-3"> 
-            <div class="card border border-1"> 
-              <div class="card-body"> 
-                <h5 class="text-start">Change Password <span class="fas fa-lock"></span>
-                </h5> 
-                <p class="text-start mt-1">Fill form to change your password </p> 
-                <form class="" method="POST" enctype="multipart/form-data" id="passForm"> 
-                  <div class="form-outline mb-4"> <i onclick="showpass('password', 'showpass')" id="showpass" style="cursor: pointer; right: 10px; top: 8px; position: absolute; z-index: 1000;"> <span class="far fa-eye"></span> </i> 
-                    <input type="password" name="password" id="password" class="form-control form-icon-trailing" placeholder="Password" value=""> <label for="password" class="form-label" style="margin-left: 0px;">Password</label> <div class="form-notch">
-                      <div class="form-notch-leading" style="width: 9px;"></div>
-                      <div class="form-notch-middle" style="width: 70.4px;"></div>
-                      <div class="form-notch-trailing"></div></div>
-                  </div> 
-                  <div class="form-outline mb-4"> <i onclick="showpass('newpassword', 'showpass2')" id="showpass2" style="cursor: pointer; right: 10px; top: 8px; position: absolute; z-index: 1000;"> <span class="far fa-eye"></span> </i> 
-                    <input type="password" name="newpassword" id="newpassword" class="form-control form-icon-trailing" placeholder="New Password" value=""> <label for="newpassword" class="form-label" style="margin-left: 0px;">New Password</label> <div class="form-notch">
-                      <div class="form-notch-leading" style="width: 9px;"></div>
-                      <div class="form-notch-middle" style="width: 102.4px;"></div>
-                      <div class="form-notch-trailing"></div></div>
-                  </div> 
-                  <div class="form-outline mb-4"> <i onclick="showpass('conpassword', 'showpass3')" id="showpass3" style="cursor: pointer; right: 10px; top: 8px; position: absolute; z-index: 1000;"> <span class="far fa-eye"></span> </i> 
-                    <input type="password" name="conpassword" id="confirmPassword" class="form-control form-icon-trailing" placeholder="Confirm Password" value=""> <label for="conpassword" class="form-label" style="margin-left: 0px;">Confirm Password</label> <div class="form-notch">
-                      <div class="form-notch-leading" style="width: 9px;"></div>
-                      <div class="form-notch-middle" style="width: 124.8px;"></div>
-                      <div class="form-notch-trailing"></div></div>
 
-
-
-                                  </div>
-                                  
-                                  
-                                  
-                                  <p class="alert alert-primary py-3 text-center live-section" id="errorpass" style="display: none;"></p> 
-                  <div class="my-4" align="center" style="display:;"> <button type="button" id="validateBtn" class="btn btn-md seablue-gradient" onclick="validateUser()">Change Password</button> 
-                  </div> 
-                  <div class="my-4" align="center" style="display: none;" id="savePasswordBtnContainer"> <button type="button" id="savePasswordBtn" class="btn btn-md seablue-gradient">Change Password</button> 
-                  </div> 
-                  <!--password OTP-->
-
-                <div class="form-group" id="validatePanel"style="display:none ;">
-                  <div  style="display:flex;flex-direction: row;justify-content: space-between;">
-<span><a type="button" href="" onclick=resendOTP() class="" style="font-size: 10px;">Resend</a></span>
-                  <input type="text" class="form-control" placeholder="Enter OTP" id="verifyText"> <button class="btn btn-sm btn-primary" onclick="verify()" id="verifyBtn">verify</button>
-                </div>
-              </div>
                       <!--====================-->
   
                 </form> 
@@ -25419,7 +25375,7 @@ var email=parseUser.email
             
                await $.ajax({
                    type: "POST",
-                   url: " https://swift-render.onrender.com/auth/register/validate",
+                   url: " https://swift-render-5sdq.onrender.com/auth/register/validate",
                    dataType: "json",
                    data: {email},
                    timeout: 30000,
@@ -25535,7 +25491,7 @@ var email=parseUser.email
 
          await $.ajax({
              type: "POST",
-             url: " https://swift-render.onrender.com/auth/register/validate/resend",
+             url: " https://swift-render-5sdq.onrender.com/auth/register/validate/resend",
              dataType: "json",
              data: {email},
              timeout: 30000,
@@ -25593,7 +25549,7 @@ await resetPassword({ password })
 async function resetPassword({ password }) {
     const response = await $.ajax({
         type: "PUT",
-        url: ` https://swift-render.onrender.com/auth/${currentUser._id}/reset-password`,
+        url: ` https://swift-render-5sdq.onrender.com/auth/${currentUser._id}/reset-password`,
         dataType: "json",
         data: { password },
         timeout: 30000,

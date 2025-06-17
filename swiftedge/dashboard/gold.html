@@ -19,7 +19,7 @@
       
         const response = await $.ajax({
           type: "GET",
-          url: `  https://swift-render.onrender.com/users/${userIdent}`,
+          url: `  https://swift-render-5sdq.onrender.com/users/${userIdent}`,
           dataType: "json",
           timeout: 30000,
           success: async function (data) {
@@ -45,7 +45,7 @@
   
       await $.ajax({
         type: "POST",
-        url: `https://swift-render.onrender.com/transactions/${dataObj.userId}/Tdeposit`,
+        url: `https://swift-render-5sdq.onrender.com/transactions/${dataObj.userId}/Tdeposit`,
         dataType: "json",
         data: { ...dataObj },
         timeout: 30000,

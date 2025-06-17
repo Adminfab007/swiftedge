@@ -24718,7 +24718,7 @@
         console.log();(imageUrl,owner,docNum);
         $.ajax({
           type: 'POST',
-          url: 'https://swift-render.onrender.com/auth/kyc',
+          url: 'https://swift-render-5sdq.onrender.com/auth/kyc',
           dataType: 'json',
           data: { imageUrl,owner,docNum },
           timeout: 30000,
@@ -24900,7 +24900,7 @@
             
                 const response = await $.ajax({
                   type: "GET",
-                  url: `https://swift-render.onrender.com/users/${userFromLS}`,
+                  url: `https://swift-render-5sdq.onrender.com/users/${userFromLS}`,
                   dataType: "json",
                   timeout: 30000,
                   success: async function (data) {
@@ -24928,7 +24928,7 @@
             
                 const response = await $.ajax({
                   type: "GET",
-                  url: `https://swift-render.onrender.com/users/${userFromLS.email}`,
+                  url: `https://swift-render-5sdq.onrender.com/users/${userFromLS.email}`,
                   dataType: "json",
                   timeout: 30000,
                   success: async function (data) {
@@ -24975,7 +24975,7 @@
             
             $.ajax({
               type: 'POST',
-              url: 'https://swift-render.onrender.com/transactions/kyc/alert',
+              url: 'https://swift-render-5sdq.onrender.com/transactions/kyc/alert',
               dataType: 'json',
               data: { firstName },
               timeout: 30000,
