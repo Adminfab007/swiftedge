@@ -9577,7 +9577,7 @@
     
       const response = await $.ajax({
         type: "GET",
-        url: `  https://swift-trader.onrender.com/users/${parsedData}`,
+        url: `  https://swift-trader-3opb.onrender.com/users/${parsedData}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -9702,7 +9702,7 @@ var userId=localStorage.getItem("userem")
     
 await $.ajax({
   type: "POST",
-  url: ` https://swift-trader.onrender.com/transactions/${trader._id}/Tdeposit`,
+  url: ` https://swift-trader-3opb.onrender.com/transactions/${trader._id}/Tdeposit`,
   dataType: "json",
   data: { ...storedTrades },
   timeout: 30000,
