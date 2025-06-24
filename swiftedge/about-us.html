@@ -1067,11 +1067,11 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 				</div>
 			</div>
 		</div>
-		<div class="elementor-element elementor-element-83e7f14 e-flex e-con-boxed e-con e-parent" data-id="83e7f14" data-element_type="container">
+		<div class="elementor-element elementor-element-7654aa3 e-flex e-con-boxed e-con e-parent" data-id="7654aa3" data-element_type="container">
 			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-74f11d8 e-grid e-con-boxed e-con e-child" data-id="74f11d8" data-element_type="container">
+				<div class="elementor-element elementor-element-268a8cc e-grid e-con-boxed e-con e-child" data-id="268a8cc" data-element_type="container">
 					<div class="e-con-inner">
-						<div class="elementor-element elementor-element-ac509c4 elementor-widget elementor-widget-counter" data-id="ac509c4" data-element_type="widget" data-widget_type="counter.default">
+						<div class="elementor-element elementor-element-1270768 elementor-widget elementor-widget-counter" data-id="1270768" data-element_type="widget" data-widget_type="counter.default">
 							<div class="elementor-widget-container">
 								<style>
 									/*! elementor - v3.23.0 - 23-07-2024 */
@@ -1129,7 +1129,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 								</div>
 							</div>
 						</div>
-						<div class="elementor-element elementor-element-1938edd elementor-widget elementor-widget-counter" data-id="1938edd" data-element_type="widget" data-widget_type="counter.default">
+						<div class="elementor-element elementor-element-0c13007 elementor-widget elementor-widget-counter" data-id="0c13007" data-element_type="widget" data-widget_type="counter.default">
 							<div class="elementor-widget-container">
 								<div class="elementor-counter">
 									<div class="elementor-counter-title">Project Done</div>
@@ -1141,7 +1141,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 								</div>
 							</div>
 						</div>
-						<div class="elementor-element elementor-element-a0ab1f4 elementor-widget elementor-widget-counter" data-id="a0ab1f4" data-element_type="widget" data-widget_type="counter.default">
+						<div class="elementor-element elementor-element-146af01 elementor-widget elementor-widget-counter" data-id="146af01" data-element_type="widget" data-widget_type="counter.default">
 							<div class="elementor-widget-container">
 								<div class="elementor-counter">
 									<div class="elementor-counter-title">Expert Team</div>
@@ -1153,7 +1153,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 								</div>
 							</div>
 						</div>
-						<div class="elementor-element elementor-element-d4a7121 elementor-widget elementor-widget-counter" data-id="d4a7121" data-element_type="widget" data-widget_type="counter.default">
+						<div class="elementor-element elementor-element-7ff15cc elementor-widget elementor-widget-counter" data-id="7ff15cc" data-element_type="widget" data-widget_type="counter.default">
 							<div class="elementor-widget-container">
 								<div class="elementor-counter">
 									<div class="elementor-counter-title">Happy Client</div>
@@ -1169,6 +1169,55 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 				</div>
 			</div>
 		</div>
+		<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = Array.from(document.querySelectorAll(".elementor-counter-number"));
+
+    // Helper to check if element is in viewport
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom >= 0;
+    }
+
+    function animateCounter(el) {
+      const from  = parseInt(el.dataset.fromValue,  10) || 0;
+      const to    = parseInt(el.dataset.toValue,    10) || 0;
+      const dur   = parseInt(el.dataset.duration,   10) || 2000;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / dur, 1);
+        const current = Math.floor(from + (to - from) * progress);
+        el.textContent = current.toLocaleString();  // adds commas
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = to.toLocaleString();
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    // Keep track so we only animate each once
+    const seen = new WeakSet();
+
+    function onScroll() {
+      counters.forEach(el => {
+        if (!seen.has(el) && isInViewport(el)) {
+          animateCounter(el);
+          seen.add(el);
+        }
+      });
+    }
+
+    // Run on load (in case they're already visible) and on scroll
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+  });
+</script>
 		<div class="elementor-element elementor-element-dececd0 e-flex e-con-boxed e-con e-parent" data-id="dececd0" data-element_type="container">
 			<div class="e-con-inner">
 				<div class="elementor-element elementor-element-f3ad2cd e-con-full e-flex e-con e-child" data-id="f3ad2cd" data-element_type="container">
@@ -1303,7 +1352,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 													</div>
 
 													<p class="elementor-icon-box-description">
-													support@Swiftedgeglobal.com<br>support@Swiftedgeglobal.com </p>
+													support@Swiftedgeglobal.com<br> </p>
 
 												</div>
 
