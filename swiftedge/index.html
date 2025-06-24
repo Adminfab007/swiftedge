@@ -1034,6 +1034,56 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 				</div>
 			</div>
 		</div>
+		<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = Array.from(document.querySelectorAll(".elementor-counter-number"));
+
+    // Helper to check if element is in viewport
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom >= 0;
+    }
+
+    function animateCounter(el) {
+      const from  = parseInt(el.dataset.fromValue,  10) || 0;
+      const to    = parseInt(el.dataset.toValue,    10) || 0;
+      const dur   = parseInt(el.dataset.duration,   10) || 2000;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / dur, 1);
+        const current = Math.floor(from + (to - from) * progress);
+        el.textContent = current.toLocaleString();  // adds commas
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = to.toLocaleString();
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    // Keep track so we only animate each once
+    const seen = new WeakSet();
+
+    function onScroll() {
+      counters.forEach(el => {
+        if (!seen.has(el) && isInViewport(el)) {
+          animateCounter(el);
+          seen.add(el);
+        }
+      });
+    }
+
+    // Run on load (in case they're already visible) and on scroll
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+  });
+</script>
+
 		<div class="elementor-element elementor-element-0d1f48f e-flex e-con-boxed e-con e-parent" data-id="0d1f48f" data-element_type="container">
 			<div class="e-con-inner">
 				<div class="elementor-element elementor-element-ac139a0 e-con-full e-flex e-con e-child" data-id="ac139a0" data-element_type="container">
