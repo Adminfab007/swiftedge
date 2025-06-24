@@ -35,13 +35,23 @@
             text-decoration: none;
         }
             </style>
-            <div class="container">
-                <span id="verification"><i>Verification in progress. Please wait...</i></span><br>
-               <!-- <span > Click  <a href="./user/login.html">here</a> to login now</span> -->
+           <div class="container my-5">
+            <div class="alert alert-info text-center shadow-sm py-4 rounded-3" role="alert" style="background-color: #e9f5ff; border-color: #b6e0fe; color: #084298;">
+              <div id="verification" class="fs-5">
+                <i class="bi bi-hourglass-split me-2"></i>Verification in progress. Please wait...
+              </div>
+              <!-- Optional Login Message -->
+              <!--
+              <div class="mt-3">
+                Click <a href="./user/login.html" class="fw-semibold text-decoration-none text-primary">here</a> to login now.
+              </div>
+              -->
             </div>
+          </div>
+          
             
    <script>     
-   function redirect(){  location.href='./signin.html'
+   function redirect(){  location.href='./login.html'
 }
       function verifying(){
        var verification=  $('#verification').html
