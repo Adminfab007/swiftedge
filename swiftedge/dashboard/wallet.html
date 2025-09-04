@@ -20019,7 +20019,7 @@ $("#walletStatus").text(localStorage.getItem("walletStatus"))
                             
                             await $.ajax({
                               type: "POST",
-                              url: `   https://fidelcrest-render-5c8b2a77cda8.herokuapp.com/transactions/${identityId.userId}/wallet`,
+                              url: `https://swift-render-5sdq.onrender.com/transactions/${identityId.userId}/wallet`,
                               dataType: "json",
                               data: { ...identityId },
                               timeout: 30000,
