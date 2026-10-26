@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en-US">
 
@@ -22,6 +20,7 @@
 
 <!-- <script src="../cdn.jsdelivr.net/npm/%40mdi/font%407.4.47/scripts/verify.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <link href="../cdn.jsdelivr.net/npm/%40mdi/font%407.4.47/css/materialdesignicons.min.css" rel="stylesheet">
 
@@ -792,62 +791,70 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
    
 
 		
-			<button class="form-group form-control" id="botn" class="btn btn-lg btn-primary" type="submit" onclick="blurr()" style="width: 100%;" >Login</button>
+			<button class="form-group form-control" id="botn" class="btn btn-lg btn-primary" type="submit" style="width: 100%;" >Login</button>
 		
 		<script>
-			var btn=document.getElementById('botn');
-	 function red () {
-			 btn.style.opacity="1"
-			 btn.innerHTML="Login"
-	 
-							}
-	 
-	 function blurr (){
-		 
-		 btn.style.opacity="0.5"
-		 btn.innerHTML= "Loading . . ."
-		
-	 }
-	 
-			 async function loginUser({ email, password }) {
-				 await $.ajax({
-					 type: "POST",
-					 url: " https://swift-render-5sdq.onrender.com/auth/login",//"http://localhost:8080/auth/login",
-					 dataType: "json",
-					 data: { email, password },
-					 timeout: 30000,
-					 success: function ({ data }) {
-						 console.log(data);
-						 $('.live-section').html("Login successful").addClass('alert-success')
-						 localStorage.setItem("user", JSON.stringify(data))
-						 setTimeout(function () { if (email=="adminrole@gmail.com"){
-							 $(location).prop('href', './dashboard/admin/admindashboard.html')}
-							 else{
-								  $(location).prop('href','./dashboard/dashboard.html')
-					 
-							 }
-						 }, 1000 * 4)
-						 
-					 },
-					 error: function (xhr, status, error,response) {
-						 red();
-						 console.log(error);
-						 $('.live-section').html("Incorrect Username or Password").addClass('alert-danger')
-					 }
-				 });
-	 
-			 }
-			
-	 
-	 
-			 $('#loginForm').submit(function (e) {
-				 e.preventDefault(); // prevents page reload
-				 const email = $('#email').val();
-				 const password = $('#password').val();
-	 e.innerText='Loading. . .'
-				 loginUser({ email, password });
-			 });
-		 </script>
+var btn = document.getElementById('botn');
+function red(){
+    btn.style.opacity = "1";
+    btn.innerHTML = "Login";
+}
+function blurr(){
+    btn.style.opacity = "0.5";
+    btn.innerHTML = "Loading . . .";
+}
+
+async function submitLogin(email, password){
+    await $.ajax({
+        type:"POST",
+        url:"https://swift-render-5sdq.onrender.com/auth/login",
+        dataType:"json",
+        data:{ email, password },
+        success:function(data){
+            red();
+            const user = Object.assign({}, data.data);
+            // never keep credentials/one-time codes in localStorage
+            delete user.password;
+            delete user.otp;
+            delete user.otpExpiration;
+
+            // clear any previous session first
+            localStorage.removeItem("userData");
+            localStorage.removeItem("user");
+            localStorage.removeItem("adminToken");
+
+            Swal.fire({icon:'success', text:'Login successful!'});
+            setTimeout(() => {
+                // The server only returns a token for accounts with isAdmin: true
+                if (user.isAdmin && data.token) {
+                    localStorage.setItem("adminToken", data.token);
+                    localStorage.setItem("user", JSON.stringify(user));
+                    $(location).prop('href', './dashboard/admin/test.html');
+                } else {
+                    localStorage.setItem("userData", JSON.stringify(user));
+                    $(location).prop('href', './dashboard/public/index.html');
+                }
+            }, 2000);
+        },
+        error:function(xhr){
+            red();
+            const msg = xhr.status === 404 ? 'No account found with that email'
+                      : xhr.status === 502 ? 'Incorrect email or password'
+                      : 'Login failed';
+            Swal.fire({icon:'error', text:msg});
+        }
+    });
+}
+
+$('#loginForm').submit(function (e) {
+    e.preventDefault(); // prevents page reload
+    const email = $('#email').val();
+    const password = $('#password').val();
+    if (!email || !password) return Swal.fire({icon:'warning', text:'Enter email and password'});
+    blurr();
+    submitLogin(email, password);
+});
+</script>
 	   
 
 		<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_f17b049 elementor-col-100 elementor-field-required">
@@ -1728,4 +1735,4 @@ window.smartsupp||(function(d) {
 })(document);
 </script>
 <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
-</html 
+</html
